@@ -1,0 +1,73 @@
+{% extends "blog/base.html" %}
+
+
+
+{% block content %}
+<div class="row">
+    <div class=" col-md-6">
+        <div class="">
+            {% if post.published_date %}
+            <div class="date">
+            {{ post.published_date }}
+            </div>
+            {% endif %}
+            <div>
+            {% if request.user.id == post.author_id %}
+            <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}">
+            <span>Edit      <i class="fa fa-pencil" aria-hidden="true"></i></span></a>
+            
+            {% endif %}
+            </div>
+            
+            <div>   
+            <h2>{{ post.title }}</h2>
+            </div>
+            <div>
+            <p>{{ post.text|linebreaksbr }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 text-center'">
+        <p class="text-warning text-center">Tags </p>
+        {% for tag in post.tags.all %}
+                <a href="{% url 'tag-info' tag=tag %}" class="">
+                <button class="btn btn-info"># {{ tag }}</button>
+                </a>
+            {% endfor %}
+    </div>
+</div>
+<!-- Comment -->
+<hr>
+
+<div>
+    <span>{{ post.approved_comments.count }} Comments </span>
+
+    <span><a class="btn btn-default offset-2 border border-success rounded-pill" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a></span>
+</div>
+{% for comment in post.comments.all %}
+    {% if user.is_authenticated or comment.approved_comment %}
+    <div class="comment">
+        <div class="date">
+            <mark>{{ comment.created_date }}</mark>
+            
+            {% if not comment.approved_comment %}
+            
+                <a class="btn btn-default offset-1" href="{% url 'comment_remove' pk=comment.pk %}"><i class="fa fa-remove">Remove</i></a>
+                <a class="btn btn-default" href="{% url 'comment_approve' pk=comment.pk %}"><i class="fa fa-thumbs-o-up">Approve</i></a>
+            {% endif %}
+        </div>
+        <div class="offset-1">
+            <small>{{ comment.text }}</small>  @<em class="text-info">{{ comment.author}}</em>
+            <p></p>
+        </div>
+    </div>
+    <hr>
+    {% endif %}
+{% empty %}
+    <div>
+    <p>No comments here yet :(</p>
+    </div>
+<hr>
+{% endfor %}
+
+{% endblock %}
