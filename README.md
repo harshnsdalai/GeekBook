@@ -19,6 +19,7 @@ C:\> virtualenv env-name
 2.Activate virtual env.
 	C:\>.\eb-env\Scripts\activate
 	(eb-env) C:\>	
+
 3. Installing required packages
 
 After cloning app from github to specified directory, open cmd at that directory.Then run following commands(to go to directory where app resides)
@@ -28,41 +29,51 @@ After cloning app from github to specified directory, open cmd at that directory
 Then install required packages from requirements.text in app folder using following commands
 	(eb-env) C:\geekbook>pip install -r requirements.txt
 (eb-env) C:\geekbook>cd hack	
+
 4. Creating database and running locally.
-(eb-env) C:\geekbook\hack>python manage.py migrate
-(eb-env) C:\geekbook\hack>python manage.py createsuperuser
-(eb-env) C:\geekbook\hack>python manage.py runserver
+	(eb-env) C:\geekbook\hack>python manage.py migrate
+	(eb-env) C:\geekbook\hack>python manage.py createsuperuser
+	(eb-env) C:\geekbook\hack>python manage.py runserver
+
 5. Go to your browser and type your local URL on port 8000.This url should be
 	http://127.0.0.1:8000/
-and you can see the website running.
+			and you can see the website running.
 
 ## Deployment on AWS Elastic Beanstalk
 
-With the AWS Elastic Beanstalk CLI working, the first thing we want to do is create a Beanstalk environment to host the application on. Run this from the project directory (“geekbook”):
-$ eb init
+With the AWS Elastic Beanstalk CLI working, the first thing we want to do is create a Beanstalk environment to host the
+application on. Run this from the project directory (“geekbook”):
+	$ eb init
 
 This will prompt you with a number of questions to help you configure your environment.
-Default region
+
+# Default region
+
 Choosing the region closest to your end users will generally provide the best performance
-Credentials
+# Credentials
+
 Next, it’s going to ask for your AWS credentials.
-Application name
+# Application name
+
 This will default to the directory name. Just go with that.
-Python version
+# Python version
+
 Next, the CLI should automagically detect that you are using Python and just ask for confirmation
 Select Python 3.6
-SSH
+
+# SSH
 Say yes to setting up SSH for your instances. Then add key value pair for your instances (e.g.aws-bc)
 Once eb init is finished, you will see a new hidden folder called .elasticbeanstalk in your project directory.
 Configure EB – Create an Environment
-1.	Coming back to the terminal, in your project directory(‘geekbook’) type:
-$ eb create django-env
+1.Coming back to the terminal, in your project directory(‘geekbook’) type:
+	$ eb create django-env
 
 The .ebextension is already set up so no need to worry. This directory is used by AWS to locate your wsgi.py and environment variables in your web app.    (For more information on .ebextension and its configuration go to https://realpython.com/deploying-a-django-app-and-postgresql-to-aws-elastic-beanstalk/#customizing-the-deployment-process.)
 
 You should see a bunch of information about the environment being set up displayed to your screen, as well as information about eb trying to deploy. 
-     2. When the environment update process completes, open your web site with eb open:
-$ eb open
+
+2. When the environment update process completes, open your web site with eb open:
+	$ eb open
 
 ## Built With
 
