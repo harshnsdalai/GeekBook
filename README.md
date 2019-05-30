@@ -1,15 +1,15 @@
-## Project Title
+# Project Title
 Geek Book
-## Getting Started
+# Getting Started
 You can clone code from my github repository.
-## Prerequisites
+# Prerequisites
 To follow this tutorial, you should have all of the Common Prerequisites for Python installed, including the following packages:
 •	Python 3.6
 •	pip
 •	virtualenv
 •	awsebcli
 
-## Installing Locally
+# Installing Locally
 1.Create a virtual environment
 
 On Windows Command Prompt, enter the following command at any directory you like(here used C directory):	
@@ -48,7 +48,7 @@ Then install required packages from requirements.text in app folder using follow
 	http://127.0.0.1:8000/
 			and you can see the website running.
 
-## Deployment on AWS Elastic Beanstalk
+# Deployment on AWS Elastic Beanstalk
 
 With the AWS Elastic Beanstalk CLI working, the first thing we want to do is create a Beanstalk environment to host the
 application on. Run this from the project directory (“geekbook”):
@@ -57,21 +57,21 @@ application on. Run this from the project directory (“geekbook”):
 
 This will prompt you with a number of questions to help you configure your environment.
 
-# Default region
+## Default region
 
 Choosing the region closest to your end users will generally provide the best performance
-# Credentials
+## Credentials
 
 Next, it’s going to ask for your AWS credentials.
-# Application name
+## Application name
 
 This will default to the directory name. Just go with that.
-# Python version
+## Python version
 
 Next, the CLI should automagically detect that you are using Python and just ask for confirmation
 Select Python 3.6
 
-# SSH
+## SSH
 Say yes to setting up SSH for your instances. Then add key value pair for your instances (e.g.aws-bc)
 Once eb init is finished, you will see a new hidden folder called .elasticbeanstalk in your project directory.
 Configure EB – Create an Environment
@@ -87,14 +87,21 @@ You should see a bunch of information about the environment being set up display
 	
 	$ eb open
 
-## Built With
+# Flow of Website
+
+## User
+	![Screenshot](uml/User.PNG)
+
+## Administrator
+	![Screenshot](uml/adminstrator.PNG)
+# Built With
 
 * [Bootstrap 4] (https://getbootstrap.com/- The CSS framework used
 * [Django v2] (https://docs.djangoproject.com/en/2.2/)
 – The web framework used
 * [PostgreSQL]( https://www.postgresql.org/) – Database
 
-## Authors
+# Authors
 
 ***Harsh Dalai*** - (https://github.com/harshnsdalai)
 
