@@ -11,12 +11,16 @@ To follow this tutorial, you should have all of the Common Prerequisites for Pyt
 
 ## Installing Locally
 1.Create a virtual environment
+
 On Windows Command Prompt, enter the following command at any directory you like(here used C directory):	
+
 C:\> virtualenv env-name
+
 2.Activate virtual env.
 	C:\>.\eb-env\Scripts\activate
-(eb-env) C:\>	
+	(eb-env) C:\>	
 3. Installing required packages
+
 After cloning app from github to specified directory, open cmd at that directory.Then run following commands(to go to directory where app resides)
 	(eb-env) C:\> cd geekbook
 	(eb-env) C:\geekbook> 
