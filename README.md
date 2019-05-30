@@ -90,10 +90,10 @@ You should see a bunch of information about the environment being set up display
 # Flow of Website
 
 ## User
-	![Screenshot](uml/User.PNG)
+![Screenshot](uml/User.PNG)
 
 ## Administrator
-	![Screenshot](uml/adminstrator.PNG)
+![Screenshot](uml/adminstrator.PNG)
 # Built With
 
 * [Bootstrap 4] (https://getbootstrap.com/- The CSS framework used
